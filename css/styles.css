@@ -59,16 +59,16 @@ body {
 }
 
 .container {
-  width: 428px;
+  max-width: 428px;
   margin: 0 auto;
   padding: 0 15px;
 
   @media screen and (min-width: 768px) {
-    width: 768px;
+    max-width: 768px;
   }
 
   @media screen and (min-width: 1158px) {
-    width: 1158px;
+    max-width: 1158px;
   }
 }
 
@@ -216,6 +216,134 @@ body {
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--slate, #434455);
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: auto;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  color: var(--navyblue, #2e2f42);
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hamburger-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--cornflower, #e7e9fc);
+  color: var(--navyblue, #2e2f42);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-icon {
+  fill: currentColor;
+}
+
+.hamburger-close-button:hover,
+.hamburger-close-button:focus {
+  background-color: var(--ocean);
+  color: var(--white);
+}
+
+.hamburger-menu-item {
+  color: var(--navyblue, #2e2f42);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0.72px;
+  margin-bottom: 40px;
+}
+
+.hamburger-address {
+  color: var(--slate, #434455);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+}
+
+.hamburger-address-item {
+  margin-bottom: 40px;
+}
+
+.hamburger-address-link {
+  color: inherit;
+}
+
+.highlight {
+  color: var(--iris, #4d5ae5);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0.72px;
+}
+
+.hamburger-social-list {
+  display: flex;
+  gap: 56px;
+}
+
+.hamburger-social-link {
+  background-color: var(--iris, #4d5ae5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cloud, #f4f4fd);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-social-link:hover,
+.hamburger-social-link:focus {
+  background-color: var(--ocean, #404bbf);
+}
+
+.hamburger-social-icon {
+  fill: currentColor;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 48px 40px;
+  background-color: var(--white);
+  z-index: 200;
+
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
 }
 
 .hero {
@@ -564,9 +692,20 @@ body {
 
 .portfolio-filters {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
   margin-bottom: 72px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1158px) {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 }
 
 .filter-button {
@@ -610,16 +749,22 @@ body {
 .projects {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -24px;
-  margin-bottom: -48px;
+  gap: 24px;
 }
 
 .project-card {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: 24px;
-  margin-bottom: 48px;
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 24px) / 2);
+  }
+
+  @media screen and (min-width: 1158px) {
+    width: calc((100% - 48px) / 3);
+  }
 }
 
 .project-link {
@@ -935,8 +1080,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 408px;
-  min-height: 584px;
+  min-width: 428px;
+  height: 100vh;
   background-color: var(--dairy, #fcfcfc);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
@@ -945,6 +1090,20 @@ body {
 
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 428px) {
+    height: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 408px;
+    min-height: 584px;
+  }
+
+  @media screen and (min-width: 1158px) {
+    min-width: 408px;
+    min-height: 584px;
+  }
 }
 
 .backdrop.is-hidden .modal {

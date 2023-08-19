@@ -274,6 +274,15 @@ body {
   margin-bottom: 40px;
 }
 
+.hamburger-menu-link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-menu-link:hover,
+.hamburger-menu-link:focus {
+  color: var(--ocean);
+}
+
 .hamburger-address {
   color: var(--slate, #434455);
   font-size: 20px;
@@ -289,11 +298,17 @@ body {
 
 .hamburger-address-link {
   color: inherit;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-address-link:hover,
+.hamburger-address-link:focus {
+  color: var(--ocean);
 }
 
 .highlight {
   color: var(--iris, #4d5ae5);
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 40px;
   letter-spacing: 0.72px;
@@ -301,7 +316,7 @@ body {
 
 .hamburger-social-list {
   display: flex;
-  gap: 56px;
+  justify-content: space-between;
 }
 
 .hamburger-social-link {
@@ -351,11 +366,53 @@ body {
   height: 600px;
   flex-shrink: 0;
   padding: 188px 0;
-  background-image: url(../images/dark-hero-bg.png), url(../images/hero-bg.jpg),
+  background-image: url(../images/dark-hero-bg.png),
+    url(../images/hero-bg-m.jpg),
     linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
-  background-size: 1440px, 1440px;
+  background-size: cover, cover;
+
+  @media screen and (min-width: 768px) {
+    background-image: unset;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../images/dark-hero-bg.png),
+      url(../images/hero-bg-m@2x.jpg),
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/dark-hero-bg.png),
+      url(../images/hero-bg-t.jpg),
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/dark-hero-bg.png),
+        url(../images/hero-bg-t@2x.jpg),
+        linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+    }
+  }
+
+  @media screen and (min-width: 1158px) {
+    background-image: url(../images/dark-hero-bg.png),
+      url(../images/hero-bg-d.jpg),
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+    background-size: 1440px, 1440px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/dark-hero-bg.png),
+        url(../images/hero-bg-d@2x.jpg),
+        linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+    }
+  }
 }
 
 .hero-container {
